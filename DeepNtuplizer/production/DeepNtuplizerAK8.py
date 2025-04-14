@@ -1,8 +1,10 @@
+from Configuration.AlCa.GlobalTag import GlobalTag
 import FWCore.ParameterSet.Config as cms
-
 import FWCore.ParameterSet.VarParsing as VarParsing
-### parsing job options 
-import sys, copy
+from PhysicsTools.PatAlgos.tools.helpers import loadWithPrefix
+from PhysicsTools.PatAlgos.tools.jetTools import updateJetCollection
+from RecoJets.JetProducers.ak4GenJets_cfi import ak4GenJets
+import sys
 
 options = VarParsing.VarParsing()
 
@@ -35,7 +37,6 @@ process.load('Configuration.StandardSequences.Services_cff')
 process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
 process.load('Configuration.StandardSequences.MagneticField_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
-from Configuration.AlCa.GlobalTag import GlobalTag
 process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_mc', '')
 #process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_data', '')
 
@@ -50,8 +51,6 @@ process.options = cms.untracked.PSet(
    allowUnscheduled = cms.untracked.bool(True),  
    wantSummary=cms.untracked.bool(False)
 )
-
-from PhysicsTools.PatAlgos.patInputFiles_cff import filesRelValTTbarPileUpMINIAODSIM
 
 #process.load('DeepNTuples.DeepNtuplizer.samples.TTJetsPhase1_cfg') #default input
 process.load('DeepNTuples.DeepNtuplizer.samples.QCD_Pt_600to800Phase1_cfg') #default input
@@ -101,7 +100,6 @@ jetCorrectionsAK4 = ('AK4PFchs', ['L1FastJet', 'L2Relative', 'L3Absolute'], 'Non
 
 jetCorrectionsAK8 = ('AK8PFchs', ['L1FastJet', 'L2Relative', 'L3Absolute'], 'None')
 
-from PhysicsTools.PatAlgos.tools.jetTools import updateJetCollection
 updateJetCollection(
         process,
         labelName = "DeepFlavour",
@@ -187,8 +185,6 @@ process.QGTaggerAK8 = process.QGTagger.clone(
     jetsLabel = cms.string('QGL_AK4PFchs'),
     )
 
-
-from RecoJets.JetProducers.ak4GenJets_cfi import ak4GenJets
 process.ak4GenJetsWithNu = ak4GenJets.clone(src = 'packedGenParticles')
  
  ## Filter out neutrinos from packed GenParticles
@@ -317,7 +313,6 @@ process.genJetSequence = cms.Sequence(process.packedGenParticlesForJetsNoNu
     )
 
 # Very Loose IVF SV collection
-from PhysicsTools.PatAlgos.tools.helpers import loadWithPrefix
 loadWithPrefix(process, 'RecoVertex.AdaptiveVertexFinder.inclusiveVertexing_cff', "looseIVF")
 process.looseIVFinclusiveCandidateVertexFinder.primaryVertices = cms.InputTag("offlineSlimmedPrimaryVertices")
 process.looseIVFinclusiveCandidateVertexFinder.tracks = cms.InputTag("packedPFCandidates")
