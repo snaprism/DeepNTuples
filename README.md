@@ -10,7 +10,7 @@ cmsrel CMSSW_13_0_8
 cd CMSSW_13_0_8/src/
 cmsenv
 git cms-init
-git clone https://github.com/AlexDeMoor/DeepNTuples
+git clone git@github.com:snaprism/DeepNTuples.git
 cd DeepNTuples
 git checkout CMSSW_13_0_8
 # Add JetToolBox
