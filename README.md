@@ -1,15 +1,16 @@
 # DeepNTuples
 NTuple framework for DeepFlavour
 
+Using CMSSW version 13_0_13 and branch CMSSW_13_0_8.
 
-Installation (CMSSW 13_0_8)
+
+Installation (CMSSW 13_0_13)
 ============
 
 ```
-cmsrel CMSSW_13_0_8
-cd CMSSW_13_0_8/src/
+cmsrel CMSSW_13_0_13
+cd CMSSW_13_0_13/src/
 cmsenv
-git cms-init
 git clone git@github.com:snaprism/DeepNTuples.git
 cd DeepNTuples
 git checkout CMSSW_13_0_8
@@ -34,11 +35,11 @@ Production
 
 Before doing a batch submission you can test the ntuplizer locally in the production directory with:
 ```
-cmsRun DeepNtuplizer.py inputFiles=/path/to/file.root
+cmsRun /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_13_0_13/src/DeepNTuples/DeepNtuplizer/production/DeepNtuplizer.py inputFiles=/path/to/file.root
 ```
 The jobs can be submitted using the following syntax
 ```
-jobSub.py --file <sample file> DeepNtuplizer.py <batch directory> --outpath /path/to/output/directory/
+python3 /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_13_0_13/src/DeepNTuples/DeepNtuplizer/scripts/jobSub.py --file /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_13_0_13/src/DeepNTuples/DeepNtuplizer/production/sample.cfg /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_13_0_13/src/DeepNTuples/DeepNtuplizer/production/DeepNtuplizer.py /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_13_0_13/src/DeepNTuples/DeepNtuplizer/condor_output --outpath /eos/home-a/aljung/data
 ```
 For an example of sample files, please refer to the .cfg files already in the production directory. You first specify the number of jobs to be submitted, then the input dataset name, which should then be followed by the name of the output. Other arguments such as gluonReduction can then be specified if needed. Each argument need to be separted by at least two whitespaces.
  
