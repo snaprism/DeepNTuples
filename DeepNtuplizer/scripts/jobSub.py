@@ -46,10 +46,7 @@ def doSub():
     jobruntime = args.walltime
     maxSize = args.maxsize
 
-    # eosGlobalOutDir='/eos/user/'+os.environ['USER'][0]+'/'+os.environ['USER']+'/DeepNtuples'
-    # eosGlobalOutDir='/eos/cms/store/cmst3/group/dehep/DeepJet/NTuples/'
-    eosGlobalOutDir = "/afs/cern.ch/work/a/ademoor/NTuples_DV/"
-    # eosGlobalOutDir='/afs/cern.ch/work/m/mullerd/NTuples_DV/'
+    eosGlobalOutDir = "/eos/home-a/aljung/data/"
 
     if len(args.outpath):
         eosGlobalOutDir = args.outpath
