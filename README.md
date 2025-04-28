@@ -39,7 +39,7 @@ cmsRun /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_13_0_13/src/DeepNTuple
 ```
 The jobs can be submitted using the following syntax
 ```
-python3 /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_13_0_13/src/DeepNTuples/DeepNtuplizer/scripts/jobSub.py --file /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_13_0_13/src/DeepNTuples/DeepNtuplizer/production/sample.cfg /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_13_0_13/src/DeepNTuples/DeepNtuplizer/production/DeepNtuplizer.py /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_13_0_13/src/DeepNTuples/DeepNtuplizer/condor_output --outpath /eos/home-a/aljung/data
+python3 /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_13_0_13/src/DeepNTuples/DeepNtuplizer/scripts/jobSub.py --file /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_13_0_13/src/DeepNTuples/DeepNtuplizer/production/sample.cfg /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_13_0_13/src/DeepNTuples/DeepNtuplizer/production/DeepNtuplizer.py /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_13_0_13/src/DeepNTuples/DeepNtuplizer/condor_output --outpath data
 ```
 For an example of sample files, please refer to the .cfg files already in the production directory. You first specify the number of jobs to be submitted, then the input dataset name, which should then be followed by the name of the output. Other arguments such as gluonReduction can then be specified if needed. Each argument need to be separted by at least two whitespaces.
  
