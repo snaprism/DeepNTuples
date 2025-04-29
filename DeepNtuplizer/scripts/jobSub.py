@@ -412,7 +412,7 @@ else
    then
      cp $OUTPUT*.root $NTUPLEOUTFILEPATH
    else
-     xrdcp $OUTPUT*.root root://eosuser.cern.ch//eos/user/a/aljung/$NTUPLEOUTFILEPATH
+     xrdcp $OUTPUT*.root root://eosuser.cern.ch//$NTUPLEOUTFILEPATH
    fi
    exitstatus=$?
    rm -f $OUTPUT*.root
