@@ -4,8 +4,6 @@
 from __future__ import print_function
 import sys, os, time
 import shutil
-from pdb import set_trace
-from glob import glob
 import re
 
 ########################## Parsing and environment ############################
@@ -275,6 +273,7 @@ max_transfer_output_mb = {maxsize}
 RequestCpus = 2
 transfer_output_remaps = "stdout.txt={logdir}con_out.$(ProcId).out"
 max_retries = 20
+MY.SingularityImage = "/cvmfs/unpacked.cern.ch/gitlab-registry.cern.ch/cms-cat/cmssw-lxplus/cmssw-el7-lxplus:latest/"
 queue {njobs}
     """.format(
             batchscriptpath=sheelscp,
