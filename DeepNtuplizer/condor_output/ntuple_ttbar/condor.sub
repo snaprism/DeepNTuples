@@ -1,0 +1,14 @@
+executable            = /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_10_6_30/src/DeepNTuples/DeepNtuplizer/condor_output/ntuple_ttbar/batchscript.sh
+arguments             = /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_10_6_30/src/DeepNTuples/DeepNtuplizer/condor_output/DeepNtuplizer.py inputScript=TTToHadronicTuneCP513TeVpowhegpythia8RunIISummer20UL16MiniAODv2106XmcRun2asymptoticv17v1MINIAODSIM nJobs=2434 job=$(ProcId) 
+log                   = /afs/cern.ch/user/a/aljung/work/repositories/CMSSW_10_6_30/src/DeepNTuples/DeepNtuplizer/condor_output/ntuple_ttbar/batch/con_out.$(ProcId).log
+getenv = True
+environment = "NTUPLEOUTFILEPATH=/eos/home-a/aljung/data/Thu_155000_/afs/cern.ch/user/a/aljung/work/repositories/CMSSW_10_6_30/src/DeepNTuples/DeepNtuplizer/condor_output/ntuple_ttbar/output/ntuple_ttbar_$(ProcId).root"
+use_x509userproxy = True
++MaxRuntime = 28800
+max_transfer_output_mb = 15000
+RequestCpus = 2
+transfer_output_remaps = "stdout.txt=/afs/cern.ch/user/a/aljung/work/repositories/CMSSW_10_6_30/src/DeepNTuples/DeepNtuplizer/condor_output/ntuple_ttbar/batch/con_out.$(ProcId).out"
+max_retries = 20
+MY.SingularityImage = "/cvmfs/unpacked.cern.ch/gitlab-registry.cern.ch/cms-cat/cmssw-lxplus/cmssw-el7-lxplus:latest/"
+queue 2434
+    
