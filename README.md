@@ -6,11 +6,12 @@ Installation (CMSSW 10_6_X)
 ============
 
 ```
+cmssw-el7
 cmsrel CMSSW_10_6_30
 cd CMSSW_10_6_30/src/
 cmsenv
 git cms-init
-git clone https://github.com/AlexDeMoor/DeepNTuples
+git clone git@github.com:snaprism/DeepNTuples.git
 cd DeepNTuples
 git checkout 106X
 # Add JetToolBox
