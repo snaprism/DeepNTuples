@@ -44,7 +44,7 @@ def doSub():
     jobruntime = args.walltime
     maxSize = args.maxsize
 
-    eosGlobalOutDir = "/eos/home-a/aljung/data/"
+    eosGlobalOutDir = "/eos/user/a/aljung/data/"
 
     if len(args.outpath):
         eosGlobalOutDir = args.outpath
